@@ -15,9 +15,9 @@
     </PreferenceCategory>
 
     <PreferenceCategory app:title="Security">
-        <SwitchPreferenceCompat
+        <SwitchPreference
             app:defaultValue="false"
-            app:key="bio"
+            app:key="auth"
             app:title="Enable Biometric Authentication" />
     </PreferenceCategory>
 
