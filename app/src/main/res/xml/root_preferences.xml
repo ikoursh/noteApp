@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Account">
+
+        <Preference
+            app:key="login_logout"
+            app:summary="test@example.com"
+            app:title="Logout" />
+
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Security">
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:key="bio"
+            app:title="Enable Biometric Authentication" />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

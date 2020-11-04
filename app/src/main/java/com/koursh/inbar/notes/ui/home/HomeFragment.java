@@ -1,5 +1,6 @@
 package com.koursh.inbar.notes.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.koursh.inbar.notes.Database.Note;
 import com.koursh.inbar.notes.Database.PublicDatabase;
+import com.koursh.inbar.notes.NoteActivity;
 import com.koursh.inbar.notes.R;
 
 import java.util.List;
@@ -24,9 +27,9 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        final View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recyclerView = (RecyclerView) root.findViewById(R.id.recycler_view);
+        recyclerView = root.findViewById(R.id.recycler_view);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -37,7 +40,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        PublicDatabase database = PublicDatabase.getPublicDatabaseInstance(root.getContext());
+        final PublicDatabase database = PublicDatabase.getPublicDatabaseInstance(root.getContext());
         List<Note> notes = database.getAllNotes();
         String[] titles = new String[notes.size()];
         long[] ids = new long[titles.length];
@@ -47,6 +50,18 @@ public class HomeFragment extends Fragment {
         }
         mAdapter = new MyAdapter(titles, ids);
         recyclerView.setAdapter(mAdapter);
+
+
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(root.getContext(), NoteActivity.class);
+                intent.putExtra("id", database.insert(new Note()));
+                startActivity(intent);
+            }
+        });
 
 
         return root;

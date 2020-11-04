@@ -4,42 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#212645"
     tools:context=".NoteActivity">
 
     <EditText
         android:id="@+id/note_body"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/placeholder_note"
         android:inputType="textMultiLine"
+        android:textColor="#fff"
+        android:textColorHint="#51566F"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/note_title"
         tools:layout_editor_absoluteX="146dp" />
+
+
+    <ImageView
+        android:id="@+id/button"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="audio"
+        android:text="Audio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_mic" />
+
 
     <EditText
         android:id="@+id/note_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:ems="10"
+        android:backgroundTint="#fff"
+        android:ellipsize="end"
         android:hint="@string/placeholder_title_note"
+        android:lines="1"
+        android:minEms="2"
+        android:text="@string/placeholder_title_note"
+        android:textColor="#fff"
+        android:textSize="30sp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Audio"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

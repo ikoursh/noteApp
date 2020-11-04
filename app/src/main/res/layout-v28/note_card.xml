@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="10dp"
+    android:layout_margin="8dp"
     card_view:cardBackgroundColor="#2E335A"
     card_view:cardCornerRadius="4dp">
 
@@ -14,8 +14,6 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Demo2"
-        android:ellipsize="end"
-        android:lines="1"
         android:textColor="#fff"
         android:textFontWeight="400"
         android:textSize="20sp" />
