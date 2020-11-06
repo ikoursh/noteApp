@@ -9,4 +9,14 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="model_names">
+        <item>Google</item>
+        <item>Mozilla (on device and open source)</item>
+    </string-array>
+
+    <string-array name="model_values">
+        <item>google</item>
+        <item>mozilla</item>
+    </string-array>
 </resources>

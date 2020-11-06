@@ -24,17 +24,19 @@
         tools:layout_editor_absoluteX="146dp" />
 
 
-    <ImageView
+    <ImageButton
         android:id="@+id/button"
         android:layout_width="50dp"
-        android:layout_height="80dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="16dp"
         android:onClick="audio"
-        android:text="Audio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_mic" />
+        android:background="@drawable/ic_mic"
+        android:elevation="50dp"
+        android:outlineAmbientShadowColor="#fff"
+        android:outlineSpotShadowColor="#fff" />
 
 
     <EditText

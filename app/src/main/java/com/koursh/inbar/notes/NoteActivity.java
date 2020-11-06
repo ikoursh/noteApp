@@ -8,9 +8,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import com.koursh.inbar.notes.Database.Note;
 import com.koursh.inbar.notes.Database.PublicDatabase;
@@ -67,9 +69,64 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     public void audio(View view) {
-        Intent intent2 = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent2.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        startActivityForResult(intent2, AUDIO_INTENT);
+        String model = PreferenceManager.getDefaultSharedPreferences(this).getString("model", "google");
+        switch (model) {
+            case "google":
+                Intent intent2 = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                intent2.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                startActivityForResult(intent2, AUDIO_INTENT);
+                break;
+            case "mozilla":
+                Toast.makeText(this, "Mozilla text to speech is still pending implementation", Toast.LENGTH_SHORT).show();
+//                SpeechResultCallback mVoiceSearchListener = new SpeechResultCallback() {
+//
+//                    @Override
+//                    public void onStartListen() {
+//                        // Handle when the api successfully opened the microphone and started listening
+//                    }
+//
+//                    @Override
+//                    public void onMicActivity(double fftsum) {
+//                        // Captures the activity from the microphone
+//                    }
+//
+//                    @Override
+//                    public void onDecoding() {
+//                        // Handle when the speech object changes to decoding state
+//                    }
+//
+//
+//                    @Override
+//                    public void onSTTResult(@Nullable STTResult result) {
+//                        if (result != null)
+//                            body.setText(String.format("%s\n%s", body.getText(), result.mTranscription));
+//                        // When the api finished processing and returned a hypothesis
+//
+//                    }
+//
+//                    @Override
+//                    public void onNoVoice() {
+//                        // Handle when the api didn't detect any voice
+//                    }
+//
+//                    @Override
+//                    public void onError(@SpeechResultCallback.ErrorType int errorType, @Nullable String error) {
+//                        // Handle when any error occurred
+//
+//                    }
+//                };
+//
+//                SpeechService speechService = new SpeechService(this);
+//
+//                SpeechServiceSettings.Builder builder = new SpeechServiceSettings.Builder()
+//                        .withLanguage("en-US")
+//                        .withStoreSamples(true)
+//                        .withStoreTranscriptions(true)
+//                        .withProductTag("product-tag");
+//
+//                speechService.start(builder.build(), mVoiceSearchListener);
+        }
+
     }
 
 

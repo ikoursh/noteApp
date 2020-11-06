@@ -53,4 +53,8 @@ public class PublicDatabase {
     public long insert(Note note) {
         return db.noteDao().insert(note);
     }
+
+    public void delete(long id) {
+        db.noteDao().delete(id);
+    }
 }

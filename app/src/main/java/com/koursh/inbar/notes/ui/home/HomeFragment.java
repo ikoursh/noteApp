@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ import com.koursh.inbar.notes.Database.PublicDatabase;
 import com.koursh.inbar.notes.NoteActivity;
 import com.koursh.inbar.notes.R;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -31,26 +33,27 @@ public class HomeFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.recycler_view);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(root.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
+
         // specify an adapter (see also next example)
         final PublicDatabase database = PublicDatabase.getPublicDatabaseInstance(root.getContext());
         List<Note> notes = database.getAllNotes();
-        String[] titles = new String[notes.size()];
-        long[] ids = new long[titles.length];
+        LinkedList<String> titles = new LinkedList<>();
+        LinkedList<Long> ids = new LinkedList<>();
         for (int i = 0; i < notes.size(); i++) {
-            titles[i] = notes.get(i).title;
-            ids[i] = notes.get(i).nid;
+            titles.add(notes.get(i).title);
+            ids.add(notes.get(i).nid);
         }
-        mAdapter = new MyAdapter(titles, ids);
+        mAdapter = new MyAdapter(titles, ids, database, root);
         recyclerView.setAdapter(mAdapter);
 
+        ItemTouchHelper itemTouchHelper = new
+                ItemTouchHelper(new SwipeCallback(mAdapter, getContext()));
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
 
@@ -72,11 +75,11 @@ public class HomeFragment extends Fragment {
         super.onResume();
         PublicDatabase database = PublicDatabase.getPublicDatabaseInstance(getContext()); //TODO: make func
         List<Note> notes = database.getAllNotes();
-        String[] titles = new String[notes.size()];
-        long[] ids = new long[titles.length];
+        LinkedList<String> titles = new LinkedList<>();
+        LinkedList<Long> ids = new LinkedList<>();
         for (int i = 0; i < notes.size(); i++) {
-            titles[i] = notes.get(i).title;
-            ids[i] = notes.get(i).nid;
+            titles.add(notes.get(i).title);
+            ids.add(notes.get(i).nid);
         }
 
         mAdapter.update(titles, ids);
