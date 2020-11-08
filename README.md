@@ -10,7 +10,7 @@
 
 Website
 =======
-(link)[https://notes.inbarkoursh.com/]
+[link](https://notes.inbarkoursh.com/)
 
 ## Author
 
