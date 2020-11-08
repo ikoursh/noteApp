@@ -16,6 +16,8 @@ Joining Google Play Beta
 =======
 You cannot at this time access the beta directly. As a workaround, please join [this](https://groups.google.com/g/notes-closed-testing/) google group. After you have successfully joined, you will see 1 post. In it is contained the link to join the beta. Please note, the links only work for the email you used to sign up for the google group.
 
+Please allow for a 15-30 minute delay from when you enter the group, and when you can join the beta program.
+
 ## Author
 
 👤 **Inbar Koursh**
