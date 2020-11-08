@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Notes</title>
+    <script>
+        function detectDesktop() {
+            if ((window.innerWidth >= 1000) && (window.innerHeight >= 500)){
+                window.location.href = "https://notes.inbarkoursh.com/";
+            }
+        }
+
+        detectDesktop();
+
+        window.addEventListener("resize", detectDesktop);
+    </script>
+</head>
+<body>
+<h1>Sorry, your screen size is not supported. The minimum screen size for this website is 1000 x 500</h1>
+<h2>Please open this site on a computer or tablet device.</h2>
+</body>
+</html>
