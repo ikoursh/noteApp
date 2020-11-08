@@ -1,0 +1,62 @@
+body {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+
+}
+
+#background {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#logo {
+    width: 48px;
+    height: auto;
+    float: left;
+
+}
+
+#header {
+    position: relative;
+    left: 17px;
+    top: 9px;
+
+    text-align: center;
+    display: table; /*acts like a table*/
+}
+
+#title {
+    font-family: "Helvetica Neue", sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0;
+    padding: 0 0 0 20px;
+    vertical-align: middle; /*middle centred*/
+    display: table-cell; /*acts like a table cell*/
+}
+
+.link {
+    color: white;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 58px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    text-decoration: none !important;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    position: absolute;
+    top: 50%;
+    transform: translate(20%, -50%);
+}
